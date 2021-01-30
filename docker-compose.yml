@@ -5,11 +5,19 @@ services:
     container_name: login-front
     build:
       context: ./front
+    volumes:
+      - ./app:/app
+    ports:
+      - 8080:8080
+    tty: true
   api:
     container_name: login-api
     build:
       context: ./api
   db:
     container_name: login-db
-    build:
-      context: ./db
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=example
+    ports:
+      - 3306:3306
