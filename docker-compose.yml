@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  front:
+    container_name: login-front
+    build:
+      context: ./front
+  api:
+    container_name: login-api
+    build:
+      context: ./api
+  db:
+    container_name: login-db
+    build:
+      context: ./db
