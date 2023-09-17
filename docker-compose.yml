@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 
 services:
   front:
@@ -6,10 +6,10 @@ services:
     build:
       context: ./front
     volumes:
-      - ./app:/app
+      - ./app:/usr/src/app
     ports:
       - 8080:8080
-    tty: true
+    command: sh -c "cd app && yarn start"
   api:
     container_name: login-api
     build:
